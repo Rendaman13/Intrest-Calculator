@@ -46,7 +46,7 @@ int main()
 		system("pause");
 		exit(EXIT_FAILURE);
 	}
-	cout << "With " << intresttypeword << " intrest at " << yrs << " years, your total comes to $" << total << endl;
+	cout << "With " << intresttypeword << " intrest at " << yrs << " year(s), your total comes to $" << total << endl;
 	system("pause");
 	return 0;
 }
