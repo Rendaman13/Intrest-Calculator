@@ -7,6 +7,9 @@ float compound(float, float, float);
 using namespace std;
 int main()
 {
+	bool repeat = true;
+	while (repeat)
+	{
 	cout << "Intrest Calculator" << endl;
 	cout << "Dollar amount: ";
 	float amount;
@@ -14,11 +17,10 @@ int main()
 	cout << "Years: ";
 	float yrs;
 	cin >> yrs;
-	if (yrs < 0)
+        while (yrs < 0)
 	{
-		cout << "Year amount cannot be less than zero." << endl;
-		system("pause");
-		exit(EXIT_FAILURE);
+		cout << "Year amount cannot be less than zero. ";
+		cin >> yrs;
 	}
 	yrs = floor(yrs * 1 + 0.5) / 1;
 	cout << "Intrest rate: ";
@@ -30,6 +32,11 @@ int main()
 	cin >> intresttype;
 	float total;
 	string intresttypeword;
+	while (intresttype != "s" & intresttype != "S" & intresttype != "c" & intresttype != "C")
+	{
+		cout << "Please enter \"s\" or \"c\" ";
+		cin >> intresttype;
+	}
 	if (intresttype == "s" | intresttype == "S")
 	{
 		total = simple(amount, yrs, rate);
@@ -40,14 +47,15 @@ int main()
 		total = compound(amount, yrs, rate);
 		intresttypeword = "compound";
 	}
-	else
-	{
-		cout << "Invalid intrest type. Valid intrest types include \"s\" or \"c\"" << endl;
-		system("pause");
-		exit(EXIT_FAILURE);
-	}
 	cout << "With " << intresttypeword << " intrest at " << yrs << " year(s), your total comes to $" << total << endl;
-	system("pause");
+	cout << "Repeat? [y/n] ";
+	string repeatyesorno;
+	cin >> repeatyesorno;
+	if (repeatyesorno != "y" & repeatyesorno != "Y")
+	{
+		repeat = false;
+	}
+	}
 	return 0;
 }
 float simple(float x, float y, float z)
