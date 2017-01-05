@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
 #include <math.h>
 #include <string>
 float simple(float, float, float);
